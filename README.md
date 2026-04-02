@@ -34,3 +34,23 @@ com.janaprasath.scholarstack
 ├── repository      # JPA Data Access (UserRepository, ResourceRepository)
 ├── service         # Business logic (UserService, ResourceService)
 └── util            # JWT Utilities (JwtUtils for Token Logic)
+
+##  API Endpoints
+
+### Authentication
+* `POST /api/auth/register` - Create a new student account.
+* `POST /api/auth/login` - Authenticate and receive a JWT.
+
+### Academic Resources (Protected)
+* `GET /api/resources/all` - View all shared resources.
+* `POST /api/resources/upload` - Contribute a new resource (Requires JWT).
+* `GET /api/resources/my-uploads` - View your personal contributions.
+* `GET /api/resources/subject/{code}` - Filter resources by subject code.
+
+##  Security Workflow
+
+The application follows a **Stateless Security** model:
+1. **Login:** `UserService` verifies credentials and uses `JwtUtils` to sign a token with a secure 256-bit key.
+2. **Interception:** `JwtAuthenticationFilter` intercepts every request to protected resource endpoints.
+3. **Verification:** It uses `JwtUtils.extractEmail` to verify the digital signature and ensure the token is valid.
+4. **Identity Context:** The verified email is stored in the `SecurityContextHolder`, allowing the `ResourceController` to map the `AcademicResource` to the correct uploader automatically.
