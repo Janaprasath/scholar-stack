@@ -23,20 +23,6 @@ ScholarStack is a full-stack academic management platform built with **Java** an
 
 ---
 
-## Project Structure
-
-```text
-com.janaprasath.scholarstack
-├── config          # Security configuration (SecurityConfig)
-├── controller      # REST API endpoints (UserController, ResourceController)
-├── entity          # Database models (User, AcademicResource)
-├── filter          # Security interceptor (JwtAuthenticationFilter)
-├── repository      # JPA Data Access (UserRepository, ResourceRepository)
-├── service         # Business logic (UserService, ResourceService)
-└── util            # JWT Utilities (JwtUtils for Token Logic)
-
----
-
 ##  API Endpoints
 
 ### Authentication
@@ -56,3 +42,19 @@ The application follows a **Stateless Security** model:
 2. **Interception:** `JwtAuthenticationFilter` intercepts every request to protected resource endpoints.
 3. **Verification:** It uses `JwtUtils.extractEmail` to verify the digital signature and ensure the token is valid.
 4. **Identity Context:** The verified email is stored in the `SecurityContextHolder`, allowing the `ResourceController` to map the `AcademicResource` to the correct uploader automatically.
+
+## Project Structure
+
+```text
+com.janaprasath.scholarstack
+├── config          # Security configuration (SecurityConfig)
+├── controller      # REST API endpoints (UserController, ResourceController)
+├── entity          # Database models (User, AcademicResource)
+├── filter          # Security interceptor (JwtAuthenticationFilter)
+├── repository      # JPA Data Access (UserRepository, ResourceRepository)
+├── service         # Business logic (UserService, ResourceService)
+└── util            # JWT Utilities (JwtUtils for Token Logic)
+
+---
+
+
