@@ -54,7 +54,3 @@ com.janaprasath.scholarstack
 ├── repository      # JPA Data Access (UserRepository, ResourceRepository)
 ├── service         # Business logic (UserService, ResourceService)
 └── util            # JWT Utilities (JwtUtils for Token Logic)
-
----
-
-
