@@ -35,6 +35,8 @@ com.janaprasath.scholarstack
 ├── service         # Business logic (UserService, ResourceService)
 └── util            # JWT Utilities (JwtUtils for Token Logic)
 
+---
+
 ##  API Endpoints
 
 ### Authentication
